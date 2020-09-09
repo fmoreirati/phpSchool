@@ -1,6 +1,11 @@
+body{
+    padding: 0 0 200px 0;
+}
+
 header{
     background-color: rgb(186, 186, 246);
 }
+
 header img{
     max-width: 300px;
 }

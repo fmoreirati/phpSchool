@@ -19,6 +19,7 @@
     include("pages/page-nav.php");
 
     $p = "pages/home.php";
+    
     if (!empty($_GET)){
         $p = $_GET['p'];
         switch($p){
@@ -30,6 +31,7 @@
             $p = "pages/home.php";  
         }
     }
+
     include($p);
 
     include("pages/page-footer.php");
