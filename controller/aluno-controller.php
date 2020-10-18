@@ -9,7 +9,7 @@ if(!empty($_POST)){
     $aluno->tel = $_POST['tel'];
     $aluno->pws = $_POST['pws'];
 
-    var_dump($aluno);
+    //var_dump($aluno);
 
     try{
         $aluno->valida();
