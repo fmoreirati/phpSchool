@@ -13,7 +13,7 @@ class Aluno{
     public function salvar(){
         try{
             $date = date("Y-m-d", strtotime($this->datanasc));
-            $pass = crypt($this->pws, $this->email;)
+            $pass = crypt($this->pws, $this->email);
             $dao = new DAO;
             var_dump($dao);
             $sql = "INSERT into aluno(nome, email, tel, ativo, pws, datanasc) VALUES (:nome, :email, :tel, :ativo, :senha, :datanasc)";
