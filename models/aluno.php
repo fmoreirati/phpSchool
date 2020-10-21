@@ -13,9 +13,8 @@ class Aluno{
     public function salvar(){
         try{
             $date = date("Y-m-d", strtotime($this->datanasc));
-            $pass = crypt($this->pws, $this->email;)
+            $pass = crypt($this->pws, $this->email);
             $dao = new DAO;
-            var_dump($dao);
             $sql = "INSERT into aluno(nome, email, tel, ativo, pws, datanasc) VALUES (:nome, :email, :tel, :ativo, :senha, :datanasc)";
             $stman = $dao->conecta()->prepare($sql);
             $stman->bindParam(":nome", $this->nome);
@@ -30,7 +29,7 @@ class Aluno{
          }
     }
 
-    public function valida(){
+    public function valida($conf){
         $error = ""; 
         if ($this->nome == ""){
             $error .= "Nome em branco.<br>";
@@ -38,6 +37,9 @@ class Aluno{
 
         if ($this->email == ""){
             $error .= "E-mail em branco.<br>";
+        }  
+        else if(!strstr($this->email,"@") && !strstr($this->email,".")  ){
+            $error .= "E-mail invalido.<br>";
         }
 
         if ($this->tel == ""){
@@ -46,6 +48,12 @@ class Aluno{
 
         if ($this->pws == ""){
             $error .= "Senha em branco.<br>";
+        } 
+        else if(strlen($this->pws) < 6) {
+            $error .= "Senha senha muito curta! Minimo de 6 caracteres.<br>";
+        }
+        else if($this->pws != $conf) {
+            $error .= "Senhas diferentes.<br>";
         }
 
         if ($error != ""){
