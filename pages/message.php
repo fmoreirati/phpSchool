@@ -1,8 +1,9 @@
+
 <?php
 
 function aviso($texto){
     echo "
-        <div class='alert alert-success alert-dismissible fade show container' role='alert'>
+        <div class='alert alert-success alert-dismissible fade show container alert-box' role='alert'>
             <h4 class='alert-heading'> Aviso </h4>
             <hr>
             <p> $texto </p>
@@ -15,7 +16,7 @@ function aviso($texto){
 
 function error($texto){
     echo "
-        <div class='alert alert-danger alert-dismissible fade show container' role='alert'>
+        <div class='alert alert-danger alert-dismissible fade show container alert-box' role='alert'>
             <h4 class='alert-heading'> Erro </h4>
             <hr>
             <p> $texto </p>
@@ -28,7 +29,7 @@ function error($texto){
 
 function alerta($texto){
     echo "
-        <div class='alert alert-warning alert-dismissible fade show container' role='alert'>
+        <div class='alert alert-warning alert-dismissible fade show container alert-box' role='alert'>
             <h4 class='alert-heading'> Alerta </h4>
             <hr>
             <p> $texto </p>

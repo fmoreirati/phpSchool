@@ -24,7 +24,11 @@
         $p = $_GET['p'];
         switch($p){
             case "cadastro":{
-                $p = "pages/form-user.php";
+                $p = "pages/user-form.php";
+            };
+        break;
+        case "entrar":{
+                $p = "pages/user-login.php";
             };
         break;
         default:
@@ -48,6 +52,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
     </script>
+    <script src="js/codigo.js"></script>
 </body>
 
 </html>
