@@ -31,7 +31,7 @@
                 <a class="nav-link" href="index.php?p=cadastro">Cadastrar</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Entrar</a>
+                <a class="nav-link" href="index.php?p=entrar">Entrar</a>
             </li>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="O que você busca?"

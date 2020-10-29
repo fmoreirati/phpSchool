@@ -4,9 +4,11 @@
 
 <section class="container">
     <form action="" method="POST">
+        <input type="hidden" name="action" value="cad">
         <div class="form-group">
             <label for="nome">Nome</label>
-            <input type="text" class="form-control" id="nome" aria-describedby="nomeHelp" placeholder="Digite seu nome" name="nome" required value='<?=$aluno->nome?>'>
+            <input type="text" class="form-control" id="nome" aria-describedby="nomeHelp" placeholder="Digite seu nome"
+                name="nome" required value='<?=$aluno->nome?>'>
             <small id="nomeHelp" class="form-text text-muted"></small>
         </div>
 
@@ -19,8 +21,8 @@
 
         <div class="form-group">
             <label for="tel">Telefone</label>
-            <input type="tel" class="form-control" id="tel" aria-describedby="telHelp"
-                placeholder="Digite seu telefone" name="tel" value=<?=$aluno->tel?>>
+            <input type="tel" class="form-control" id="tel" aria-describedby="telHelp" placeholder="Digite seu telefone"
+                name="tel" value=<?=$aluno->tel?>>
             <small id="telHelp" class="form-text text-muted"></small>
         </div>
 
