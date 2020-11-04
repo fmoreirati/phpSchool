@@ -18,7 +18,14 @@ if(!empty($_POST))
             echo "<script> window.location.href = 'http://localhost/phpSchool/index.php';</script>";
         break;
     }
+}
 
+if (!empty($_GET)){
+    switch ($_GET["action"]) {
+        case "listAll":
+            $alunos = listarTodos();
+        break;        
+    }
 }
 
 function cadastro()
@@ -31,15 +38,15 @@ function cadastro()
     $aluno->datanasc = $_POST['datanasc'];
     $confpws = $_POST['confpws'];
     try{
-        $aluno->valida($confpws);
-        $aluno->salvar();
+        $aluno->validate($confpws);
+        $aluno->add();
         aviso("Cadastrado com sucesso!");
         $aluno = new Aluno;
         echo "<script> this.form.reset();</script>";
         //echo "<script> window.location.href = 'http://localhost/phpSchool/index.php';</script>";
         //header("Location: http://localhost/phpSchool/index.php");
     } catch(Exception $erro){
-    error($erro->getMessage());
+        error($erro->getMessage());
     }   
 }
 
@@ -50,10 +57,30 @@ function entrar()
     $pws = $_POST['pws'];
     try{
         $result = $aluno->login($email, $pws);
-        var_dump($result);
+        session_start();
+        if ($result){
+            $aluno = new Aluno();
+            $aluno = $result;
+            var_dump($aluno);
+            $_SESSION["user"] = $aluno;
+            echo "<script> window.location.href = 'http://localhost/phpSchool/index.php';</script>";
+            //header("Location: http://localhost/phpSchool/index.php");
+        } else {
+            session_destroy();
+        }
+    } catch(Exception $erro){
+        error($erro->getMessage());
+    }   
+}
+
+function listarTodos(){
+    try{
+        $aluno = new Aluno;
+        $alunos = $aluno->getAll();
+        return $alunos;
         //echo "<script> window.location.href = 'http://localhost/phpSchool/index.php';</script>";
         //header("Location: http://localhost/phpSchool/index.php");
     } catch(Exception $erro){
-    error($erro->getMessage());
+        error($erro->getMessage());
     }   
 }
