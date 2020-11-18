@@ -10,7 +10,7 @@ class Aluno{
     public $datanasc;
     public $ativo = true;
 
-    public function valida($conf){
+    public function validate($conf){
         $error = ""; 
         if ($this->nome == ""){
             $error .= "Nome em branco.<br>";
@@ -62,7 +62,7 @@ class Aluno{
         }
     }
 
-    public function salvar(){
+    public function add(){
         try{
             $date = date("Y-m-d", strtotime($this->datanasc));
             //$pass = crypt($this->pws, $this->email);
@@ -82,4 +82,17 @@ class Aluno{
         }
     }
     
+    public function getAll(){
+        try{
+            $dao = new DAO;
+            $sql = "Select * from aluno";
+            $stman = $dao->conecta()->prepare($sql);
+            $stman->execute();
+            $result = $stman->fetchAll();
+            return $result;
+        }catch(Exception $e){
+            throw new Exception("Erro ao Cadastrar:", $e->getMessage());
+        }
+    }
+
 }

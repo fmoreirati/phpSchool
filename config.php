@@ -18,4 +18,3 @@ define("DB","phpschool");
 // define("USER","root");
 // define("PASS","");
 // define("DB","phpschool");
-

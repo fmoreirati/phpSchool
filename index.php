@@ -31,6 +31,10 @@
                 $p = "pages/user-login.php";
             };
         break;
+        case "list":{
+                $p = "pages/user-list.php";
+            };
+        break;
         default:
             $p = "pages/home.php";  
         }
