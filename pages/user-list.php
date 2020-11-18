@@ -1,5 +1,7 @@
 <?php 
+    include_once("validauser.php");
     require_once("./controller/aluno-controller.php");
+    
 ?>
 
 <section class="container">
